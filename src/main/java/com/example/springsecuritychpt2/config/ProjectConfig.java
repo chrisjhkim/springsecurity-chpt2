@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
-@SuppressWarnings("deprecation") //  개발용으로 사용하라는 의미로 Deprecated 되어있음
 public class ProjectConfig extends WebSecurityConfigurerAdapter {
 
 	/**
