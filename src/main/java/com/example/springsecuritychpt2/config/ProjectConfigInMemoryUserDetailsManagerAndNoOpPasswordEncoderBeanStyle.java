@@ -1,6 +1,5 @@
 package com.example.springsecuritychpt2.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -15,14 +14,18 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
  *
  */
 //@Configuration
-public class ProjectConfigBeanStyle extends WebSecurityConfigurerAdapter {
+@SuppressWarnings({
+		"deprecation", // 테스트 위함
+		"unused"    // 학습 목적
+})
+public class ProjectConfigInMemoryUserDetailsManagerAndNoOpPasswordEncoderBeanStyle extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * allows
 	 * curl -u john:12345 http://localhost:8080/hello
 	 */
 	@SuppressWarnings("JavadocLinkAsPlainText")
-	@Bean
+//	@Bean
 	public UserDetailsService userDetailsService(){
 		var userDetailsService = new InMemoryUserDetailsManager();
 
@@ -36,7 +39,7 @@ public class ProjectConfigBeanStyle extends WebSecurityConfigurerAdapter {
 		return userDetailsService;
 	}
 
-	@Bean
+//	@Bean
 	@SuppressWarnings("deprecation") // NoOpPasswordEncoder 는 개발용으로 사용하라는 의미로 Deprecated 되어있음
 	public PasswordEncoder passwordEncoder(){
 		return NoOpPasswordEncoder.getInstance();

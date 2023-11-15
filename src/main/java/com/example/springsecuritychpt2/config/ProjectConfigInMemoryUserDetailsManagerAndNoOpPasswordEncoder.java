@@ -1,7 +1,5 @@
 package com.example.springsecuritychpt2.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -12,11 +10,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 /**
  * 2.3.3. 엔드포인트 권한 부여 구성 재정의(다른스타일)
- *
+  * userDetailService - InMemoryUserDetailsService
+ * passwordEncoder - NoOpPasswordEncoder
  */
-@Configuration
-@SuppressWarnings("deprecation") //  개발용으로 사용하라는 의미로 Deprecated 되어있음
-public class ProjectConfig extends WebSecurityConfigurerAdapter {
+//@Configuration
+@SuppressWarnings({"deprecation", "unused"}) //  개발용으로 사용하라는 의미로 Deprecated 되어있음
+public class ProjectConfigInMemoryUserDetailsManagerAndNoOpPasswordEncoder extends WebSecurityConfigurerAdapter {
 	/**
 	 * allows
 	 * curl -u john:12345 http://localhost:8080/hello
@@ -38,7 +37,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 	}
 
 
-	@Bean
+//	@Bean
 	public UserDetailsService userDetailsService(){
 		var userDetailsService = new InMemoryUserDetailsManager();
 
@@ -53,6 +52,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 	}
 
 
+	@SuppressWarnings("CommentedOutCode")
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.httpBasic();
