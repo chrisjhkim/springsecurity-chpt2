@@ -9,6 +9,11 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+
+/**
+ * 2.3.2. 엔드포인트 권한 부여 구성 재정의
+ *
+ */
 //@Configuration
 public class ProjectConfigBeanStyle extends WebSecurityConfigurerAdapter {
 

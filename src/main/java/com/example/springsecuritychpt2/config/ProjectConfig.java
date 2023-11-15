@@ -10,6 +10,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+/**
+ * 2.3.3. 엔드포인트 권한 부여 구성 재정의(다른스타일)
+ *
+ */
 @Configuration
 public class ProjectConfig extends WebSecurityConfigurerAdapter {
 	/**
